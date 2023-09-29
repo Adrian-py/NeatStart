@@ -1,7 +1,9 @@
+import "./css/style.css";
+
 function App() {
   return (
-    <>
-    </>
+    <main>
+    </main>
   )
 }
 
