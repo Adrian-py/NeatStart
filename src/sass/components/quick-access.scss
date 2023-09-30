@@ -1,0 +1,57 @@
+.quick-access{
+  
+  &__title {
+    margin-bottom: 2rem;
+  }
+
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(4, 5rem);
+    gap: 2rem;
+  }
+
+  &__link {
+    position: relative;
+    width: 5rem;
+    aspect-ratio: 1/1;
+    background-color: var(--background-2);
+    border-radius: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.3rem;
+    transition: all 150ms ease-in-out;
+  }
+
+  &__favicon {
+    width: 40%;
+  }
+
+  &__site-name {
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6rem;
+    padding: 0.4rem 0.75rem;
+    text-decoration: none;
+    color: var(--primary);
+    background: var(--background-2);
+    text-align: center;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    visibility: hidden;
+  }
+
+  &__link:hover{ 
+    background: var(--background-3);
+    cursor: pointer;
+  }
+
+  &__link:hover &__site-name {
+    visibility: visible;
+    z-index: 1000;
+  }
+}

@@ -1,7 +1,143 @@
-* {
+*, *::after, *::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+:root {
+  --background: #111111;
+  --background-2: #1B1B1B;
+  --background-3: #303030;
+  --primary: rgba(219, 219, 219);
+  --primary-75: rgba(219, 219, 219, 0.75);
+  --primary-50: rgba(219, 219, 219, 0.5);
+}
+
+/* Chivo Regular */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Chivo";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../assets/fonts/Chivo-Regular.ttf") format("ttf"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* Chivo Black */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Chivo";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../../assets/fonts/Chivo-Black.ttf") format("ttf"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+:root {
+  --mainFont: "Chivo", sans-serif;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  padding: 0 8.333vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: url("/src/assets/texture.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: var(--mainFont);
+  color: var(--primary);
+}
+
+.seperator {
+  height: 78.125vh;
+  border: 1px solid var(--primary-50);
+}
+
+.main-section {
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  gap: 7.8125vh;
+}
+
+.second-section {
+  width: 32vw;
+  height: 80%;
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+}
+.greeting__hello {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.greeting__time {
+  font-size: 5rem;
+  font-weight: 900;
+}
+.greeting__date {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.quick-access__title {
+  margin-bottom: 2rem;
+}
+.quick-access__links {
+  display: grid;
+  grid-template-columns: repeat(4, 5rem);
+  gap: 2rem;
+}
+.quick-access__link {
+  position: relative;
+  width: 5rem;
+  aspect-ratio: 1/1;
+  background-color: var(--background-2);
+  border-radius: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: all 150ms ease-in-out;
+}
+.quick-access__favicon {
+  width: 40%;
+}
+.quick-access__site-name {
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6rem;
+  padding: 0.4rem 0.75rem;
+  text-decoration: none;
+  color: var(--primary);
+  background: var(--background-2);
+  text-align: center;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  visibility: hidden;
+}
+.quick-access__link:hover {
+  background: var(--background-3);
+  cursor: pointer;
+}
+.quick-access__link:hover .quick-access__site-name {
+  visibility: visible;
+  z-index: 1000;
 }
 
 /*# sourceMappingURL=style.css.map */

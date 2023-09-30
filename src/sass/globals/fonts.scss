@@ -1,3 +1,21 @@
-:root {
+// Declare Font Face
+/* Chivo Regular */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Chivo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../assets/fonts/Chivo-Regular.ttf') format('ttf'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* Chivo Black */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Chivo';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../../assets/fonts/Chivo-Black.ttf') format('ttf'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 
+:root {
+  --mainFont: "Chivo", sans-serif;
 }

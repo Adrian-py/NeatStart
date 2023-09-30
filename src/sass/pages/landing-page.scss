@@ -1,0 +1,18 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  padding: 0 8.333vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: url('/src/assets/texture.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: var(--mainFont);
+  color: var(--primary);
+}
+
+.seperator {
+  height: 78.125vh;
+  border: 1px solid var(--primary-50);
+}
