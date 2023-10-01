@@ -1,13 +1,13 @@
 import TopSites from './components/TopSites';
 import { LinkInterface } from '../MainSection/types/LinkInterface';
 import History from './components/Hitsory';
+import { useEffect, useState } from 'react';
 
 const faviconUrl: string = import.meta.env.VITE_FAVICON_LINK;
 
 const SecondSection = () => {
-  // chrome.topSites.get((data) => {
-  //   console.log(data);
-  // })
+  const [topSitesLinks, setTopSitesLinks] = useState<LinkInterface[]>([]);
+  const [historyLinks, setHistoryLinks] = useState<LinkInterface[]>([]);
 
   const getFaviconUrl = (url: string): string => {
     let validUrl = url;
@@ -19,28 +19,28 @@ const SecondSection = () => {
     return faviconUrl + validUrl + ".ico";
   };
 
-  const tempLink: LinkInterface[] = [
-    {
-      "title": "YouTube",
-      "url": "https://www.youtube.com/",
-      "favicon": getFaviconUrl("https://www.youtube.com/"),
-    },
-    {
-      "title": "Instagram",
-      "url": "https://www.instagram.com/",
-      "favicon": getFaviconUrl("https://www.instagram.com/"),
-    },
-    {
-      "title": "Github",
-      "url": "https://github.com/",
-      "favicon": getFaviconUrl("https://github.com/"),
-    },
-  ]
+  useEffect(() => {
+    chrome.topSites.get((data) => {
+      const links: LinkInterface[] = data.map((link) => {
+        return { ...link, "favicon": getFaviconUrl(link.url) };
+      });
+
+      setTopSitesLinks(links);
+    });
+
+    chrome.history.search({ text: '', maxResults: 3 }, (data) => {
+      const links: LinkInterface[] = data.map((link) => {
+        return { "title": link.title ?? "", "url": link.url ?? "", "favicon": getFaviconUrl(link.url ?? "") };
+      });
+
+      setHistoryLinks(links);
+    });
+  }, []);
 
   return (
     <section className="second-section">
-      <TopSites topSitesLinks={tempLink} />
-      <History historyLinks={tempLink} />
+      <TopSites topSitesLinks={topSitesLinks} />
+      <History historyLinks={historyLinks} />
     </section>
   )
 };
