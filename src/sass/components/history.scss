@@ -1,0 +1,70 @@
+.history{
+  &__title {
+    margin-bottom: 1.5rem;
+
+    @media(min-height: 600px){
+      margin-bottom: 1rem; 
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__link {
+    height: 6vh;
+    aspect-ratio: 6.25/1;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--background-2);
+    border-radius: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+    
+    &:hover {
+      background: var(--background-3);
+  
+      .history__favicon {
+        opacity: 1;
+      }
+  
+      .history__site-name {
+        color: var(--primary);
+      }
+    }
+
+    @media (min-width: 1920px) {
+      height: 6vh;
+      padding: 0 3rem;
+    }
+
+    @media(min-height: 600px){
+      aspect-ratio: 8/1;
+      border-radius: 0.5rem;    
+    }
+  }
+
+
+  &__favicon {
+    height: 30%;
+    opacity: 0.75;
+    transition: all 150ms ease-in-out;
+  }
+
+  &__site-name {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--primary-75);
+    transition: all 150ms ease-in-out;
+
+    @media(max-height: 900px){
+      font-size: 0.9rem;      
+    }
+  }
+}

@@ -9,8 +9,8 @@ const QuickAccessLinks = ({ quickAccessLinks }: QuickAccessLinksProps) => {
   const renderQuickAccessLinks: () => JSX.Element = () => {
     return (
       <>
-        {quickAccessLinks.map((linkData) => {
-          return <QuickAccessLink linkData={linkData} />
+        {quickAccessLinks.map((linkData: LinkInterface, index: number) => {
+          return <QuickAccessLink linkData={linkData} key={index} />
         })}
       </>
     )

@@ -1,4 +1,5 @@
 .second-section {
-  width: 32vw;
-  height: 80%;
+  @media (min-width: 1920px) {
+    min-width: 32vw;
+  }
 }

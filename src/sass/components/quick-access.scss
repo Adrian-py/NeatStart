@@ -2,12 +2,21 @@
   
   &__title {
     margin-bottom: 2rem;
+
+    @media (max-width: 1366px){
+      margin-bottom: 1.5rem;
+    }
   }
 
   &__links {
     display: grid;
     grid-template-columns: repeat(4, 5rem);
     gap: 2rem;
+
+    @media (max-width: 1366px){
+      grid-template-columns: (repeat(4, 4.5rem));
+      gap: 1.5rem;
+    }
   }
 
   &__link {
@@ -22,6 +31,10 @@
     flex-direction: column;
     gap: 0.3rem;
     transition: all 150ms ease-in-out;
+
+    @media (max-width: 1366px){
+      width: 4.5rem;
+    }
   }
 
   &__favicon {

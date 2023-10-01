@@ -10,7 +10,7 @@ html {
 }
 
 .section-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 400;
 }
 
@@ -59,7 +59,8 @@ html {
 
 .seperator {
   height: 78.125vh;
-  border: 1px solid var(--primary-50);
+  border: 1px solid var(--primary);
+  opacity: 0.2;
 }
 
 .main-section {
@@ -69,9 +70,10 @@ html {
   gap: 7.8125vh;
 }
 
-.second-section {
-  width: 32vw;
-  height: 80%;
+@media (min-width: 1920px) {
+  .second-section {
+    min-width: 32vw;
+  }
 }
 
 .greeting {
@@ -82,22 +84,48 @@ html {
   font-size: 1.5rem;
   font-weight: 400;
 }
+@media (max-width: 1366px) {
+  .greeting__hello {
+    font-size: 1.25rem;
+  }
+}
 .greeting__time {
   font-size: 5rem;
   font-weight: 900;
+}
+@media (max-width: 1366px) {
+  .greeting__time {
+    font-size: 4rem;
+  }
 }
 .greeting__date {
   font-size: 2.5rem;
   font-weight: 900;
 }
+@media (max-width: 1366px) {
+  .greeting__date {
+    font-size: 1.75rem;
+  }
+}
 
 .quick-access__title {
   margin-bottom: 2rem;
+}
+@media (max-width: 1366px) {
+  .quick-access__title {
+    margin-bottom: 1.5rem;
+  }
 }
 .quick-access__links {
   display: grid;
   grid-template-columns: repeat(4, 5rem);
   gap: 2rem;
+}
+@media (max-width: 1366px) {
+  .quick-access__links {
+    grid-template-columns: repeat(4, 4.5rem);
+    gap: 1.5rem;
+  }
 }
 .quick-access__link {
   position: relative;
@@ -111,6 +139,11 @@ html {
   flex-direction: column;
   gap: 0.3rem;
   transition: all 150ms ease-in-out;
+}
+@media (max-width: 1366px) {
+  .quick-access__link {
+    width: 4.5rem;
+  }
 }
 .quick-access__favicon {
   width: 40%;
@@ -138,6 +171,138 @@ html {
 .quick-access__link:hover .quick-access__site-name {
   visibility: visible;
   z-index: 1000;
+}
+
+.top-sites {
+  margin-bottom: 6vh;
+}
+.top-sites__title {
+  margin-bottom: 1.5rem;
+}
+@media (min-height: 600px) {
+  .top-sites__title {
+    margin-bottom: 1rem;
+  }
+}
+.top-sites__links {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.top-sites__link {
+  height: 6vh;
+  aspect-ratio: 6.25/1;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--background-2);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+}
+.top-sites__link:hover {
+  background: var(--background-3);
+}
+.top-sites__link:hover .top-sites__favicon {
+  opacity: 1;
+}
+.top-sites__link:hover .top-sites__site-name {
+  color: var(--primary);
+}
+@media (min-width: 1920px) {
+  .top-sites__link {
+    padding: 0 3rem;
+  }
+}
+@media (min-height: 600px) {
+  .top-sites__link {
+    aspect-ratio: 8/1;
+    border-radius: 0.5rem;
+  }
+}
+.top-sites__favicon {
+  height: 30%;
+  opacity: 0.75;
+  transition: all 150ms ease-in-out;
+}
+.top-sites__site-name {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--primary-75);
+  transition: all 150ms ease-in-out;
+}
+@media (max-height: 900px) {
+  .top-sites__site-name {
+    font-size: 0.9rem;
+  }
+}
+
+.history__title {
+  margin-bottom: 1.5rem;
+}
+@media (min-height: 600px) {
+  .history__title {
+    margin-bottom: 1rem;
+  }
+}
+.history__links {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.history__link {
+  height: 6vh;
+  aspect-ratio: 6.25/1;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--background-2);
+  border-radius: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+}
+.history__link:hover {
+  background: var(--background-3);
+}
+.history__link:hover .history__favicon {
+  opacity: 1;
+}
+.history__link:hover .history__site-name {
+  color: var(--primary);
+}
+@media (min-width: 1920px) {
+  .history__link {
+    height: 6vh;
+    padding: 0 3rem;
+  }
+}
+@media (min-height: 600px) {
+  .history__link {
+    aspect-ratio: 8/1;
+    border-radius: 0.5rem;
+  }
+}
+.history__favicon {
+  height: 30%;
+  opacity: 0.75;
+  transition: all 150ms ease-in-out;
+}
+.history__site-name {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--primary-75);
+  transition: all 150ms ease-in-out;
+}
+@media (max-height: 900px) {
+  .history__site-name {
+    font-size: 0.9rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

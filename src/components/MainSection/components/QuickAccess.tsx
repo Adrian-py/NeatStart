@@ -6,7 +6,7 @@ type QuickAccessProps = {
   quickAccessLinks: LinkInterface[];
 };
 
-const numberOfLinks: number = parseInt(import.meta.env.VITE_NUMBER_OF_QUICK_ACCESS_LINKS);
+const minNumberOfLinks = 8;
 
 const QuickAccess = ({ quickAccessLinks }: QuickAccessProps) => {
   const [links, setLinks] = useState<LinkInterface[]>([]);
@@ -14,7 +14,7 @@ const QuickAccess = ({ quickAccessLinks }: QuickAccessProps) => {
   useEffect(() => {
     const newLinks = [];
 
-    for (let i = 0; i < numberOfLinks; i++) {
+    for (let i = 0; i < minNumberOfLinks; i++) {
       if (i < quickAccessLinks.length) {
         newLinks.push(quickAccessLinks[i]);
         continue;
