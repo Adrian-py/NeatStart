@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import HistoryLinks from './HistoryLinks';
+import Links from './Links';
+import fillArrayToMinimum from '../../../helpers/fillArrayToMinimum';
 import { LinkInterface } from '../../MainSection/types/LinkInterface';
 
 type HistoryProps = {
@@ -12,16 +13,7 @@ const History = ({ historyLinks }: HistoryProps) => {
   const [links, setLinks] = useState<LinkInterface[]>([]);
 
   useEffect(() => {
-    const newLinks = [];
-
-    for (let i = 0; i < minNumberOfLinks; i++) {
-      if (i < historyLinks.length) {
-        newLinks.push(historyLinks[i]);
-        continue;
-      }
-
-      newLinks.push({} as LinkInterface);
-    }
+    const newLinks = fillArrayToMinimum<LinkInterface>(historyLinks, minNumberOfLinks);
 
     setLinks(newLinks);
   }, [historyLinks]);
@@ -29,7 +21,7 @@ const History = ({ historyLinks }: HistoryProps) => {
   return (
     <div className="history">
       <h3 className="section-title history__title">History</h3>
-      <HistoryLinks historyLinks={links} />
+      <Links linksData={links} />
     </div>
   );
 };

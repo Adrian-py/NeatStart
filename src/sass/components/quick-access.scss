@@ -15,7 +15,7 @@
 
     @media (max-width: 1366px){
       grid-template-columns: (repeat(4, 4.5rem));
-      gap: 1.5rem;
+      gap: 1rem;
     }
   }
 
@@ -23,7 +23,7 @@
     position: relative;
     width: 5rem;
     aspect-ratio: 1/1;
-    background-color: var(--background-2);
+    background-color: var(--background-transparent);
     border-radius: 1.25rem;
     display: flex;
     justify-content: center;
@@ -31,9 +31,15 @@
     flex-direction: column;
     gap: 0.3rem;
     transition: all 150ms ease-in-out;
+    
+    &:hover{ 
+      background: var(--background-2);
+      cursor: pointer;
+    }
 
     @media (max-width: 1366px){
-      width: 4.5rem;
+      width: 4rem;
+      border-radius: 0.75rem;
     }
   }
 
@@ -58,10 +64,6 @@
     visibility: hidden;
   }
 
-  &__link:hover{ 
-    background: var(--background-3);
-    cursor: pointer;
-  }
 
   &__link:hover &__site-name {
     visibility: visible;

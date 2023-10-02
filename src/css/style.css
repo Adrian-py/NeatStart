@@ -13,11 +13,17 @@ html {
   font-size: 1.25rem;
   font-weight: 400;
 }
+@media (max-width: 1366px) {
+  .section-title {
+    font-size: 1rem;
+  }
+}
 
 :root {
   --background: #111111;
   --background-2: #1B1B1B;
   --background-3: #303030;
+  --background-transparent: #111111c0;
   --primary: rgba(219, 219, 219);
   --primary-75: rgba(219, 219, 219, 0.75);
   --primary-50: rgba(219, 219, 219, 0.5);
@@ -76,6 +82,19 @@ html {
   }
 }
 
+.top-sites {
+  margin-bottom: 6vh;
+}
+
+.top-sites__title, .history__title {
+  margin-bottom: 1.5rem;
+}
+@media (min-height: 600px) {
+  .top-sites__title, .history__title {
+    margin-bottom: 1rem;
+  }
+}
+
 .greeting {
   display: flex;
   flex-direction: column;
@@ -124,14 +143,14 @@ html {
 @media (max-width: 1366px) {
   .quick-access__links {
     grid-template-columns: repeat(4, 4.5rem);
-    gap: 1.5rem;
+    gap: 1rem;
   }
 }
 .quick-access__link {
   position: relative;
   width: 5rem;
   aspect-ratio: 1/1;
-  background-color: var(--background-2);
+  background-color: var(--background-transparent);
   border-radius: 1.25rem;
   display: flex;
   justify-content: center;
@@ -140,9 +159,14 @@ html {
   gap: 0.3rem;
   transition: all 150ms ease-in-out;
 }
+.quick-access__link:hover {
+  background: var(--background-2);
+  cursor: pointer;
+}
 @media (max-width: 1366px) {
   .quick-access__link {
-    width: 4.5rem;
+    width: 4rem;
+    border-radius: 0.75rem;
   }
 }
 .quick-access__favicon {
@@ -164,143 +188,62 @@ html {
   text-overflow: ellipsis;
   visibility: hidden;
 }
-.quick-access__link:hover {
-  background: var(--background-3);
-  cursor: pointer;
-}
 .quick-access__link:hover .quick-access__site-name {
   visibility: visible;
   z-index: 1000;
 }
 
-.top-sites {
-  margin-bottom: 6vh;
-}
-.top-sites__title {
-  margin-bottom: 1.5rem;
-}
-@media (min-height: 600px) {
-  .top-sites__title {
-    margin-bottom: 1rem;
-  }
-}
-.top-sites__links {
+.links {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
-.top-sites__link {
+.links__description {
+  width: 90%;
+}
+.links__link {
+  max-width: 40vw;
+  max-height: 5rem;
   height: 6vh;
   aspect-ratio: 6.25/1;
   padding: 0 2rem;
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: 1.5rem;
-  background: var(--background-2);
+  gap: 5%;
+  background: var(--background-transparent);
   border-radius: 0.75rem;
   text-decoration: none;
   cursor: pointer;
   transition: all 150ms ease-in-out;
 }
-.top-sites__link:hover {
-  background: var(--background-3);
-}
-.top-sites__link:hover .top-sites__favicon {
-  opacity: 1;
-}
-.top-sites__link:hover .top-sites__site-name {
-  color: var(--primary);
-}
-@media (min-width: 1920px) {
-  .top-sites__link {
-    padding: 0 3rem;
-  }
-}
-@media (min-height: 600px) {
-  .top-sites__link {
-    aspect-ratio: 8/1;
-    border-radius: 0.5rem;
-  }
-}
-.top-sites__favicon {
-  height: 30%;
-  opacity: 0.75;
-  transition: all 150ms ease-in-out;
-}
-.top-sites__site-name {
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--primary-75);
-  transition: all 150ms ease-in-out;
-}
-@media (max-height: 900px) {
-  .top-sites__site-name {
-    font-size: 0.9rem;
-  }
-}
-
-.history__title {
-  margin-bottom: 1.5rem;
-}
-@media (min-height: 600px) {
-  .history__title {
-    margin-bottom: 1rem;
-  }
-}
-.history__links {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.history__link {
-  height: 6vh;
-  aspect-ratio: 6.25/1;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 1.5rem;
+.links__link:hover {
   background: var(--background-2);
-  border-radius: 1rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 150ms ease-in-out;
-}
-.history__link:hover {
-  background: var(--background-3);
-}
-.history__link:hover .history__favicon {
-  opacity: 1;
-}
-.history__link:hover .history__site-name {
-  color: var(--primary);
 }
 @media (min-width: 1920px) {
-  .history__link {
-    height: 6vh;
+  .links__link {
     padding: 0 3rem;
   }
 }
 @media (min-height: 600px) {
-  .history__link {
+  .links__link {
     aspect-ratio: 8/1;
     border-radius: 0.5rem;
   }
 }
-.history__favicon {
+.links__favicon {
   height: 30%;
-  opacity: 0.75;
-  transition: all 150ms ease-in-out;
 }
-.history__site-name {
+.links__site-name {
   font-size: 1.1rem;
   font-weight: 400;
-  color: var(--primary-75);
-  transition: all 150ms ease-in-out;
+  color: var(--primary);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 @media (max-height: 900px) {
-  .history__site-name {
+  .links__site-name {
     font-size: 0.9rem;
   }
 }

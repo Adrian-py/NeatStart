@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import TopSitesLinks from './TopSitesLinks';
+import Links from './Links';
+import fillArrayToMinimum from '../../../helpers/fillArrayToMinimum';
 import { LinkInterface } from '../../MainSection/types/LinkInterface';
 
 type TopSitesProps = {
@@ -12,16 +13,7 @@ const TopSites = ({ topSitesLinks }: TopSitesProps) => {
   const [links, setLinks] = useState<LinkInterface[]>([]);
 
   useEffect(() => {
-    const newLinks = [];
-
-    for (let i = 0; i < minNumberOfLinks; i++) {
-      if (i < topSitesLinks.length) {
-        newLinks.push(topSitesLinks[i]);
-        continue;
-      }
-
-      newLinks.push({} as LinkInterface);
-    }
+    const newLinks = fillArrayToMinimum<LinkInterface>(topSitesLinks, minNumberOfLinks);
 
     setLinks(newLinks);
   }, [topSitesLinks]);
@@ -29,7 +21,7 @@ const TopSites = ({ topSitesLinks }: TopSitesProps) => {
   return (
     <div className="top-sites">
       <h3 className="section-title top-sites__title">Top Sites</h3>
-      <TopSitesLinks topSitesLinks={links} />
+      <Links linksData={links} />
     </div>
   );
 };
