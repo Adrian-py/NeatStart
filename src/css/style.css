@@ -233,6 +233,7 @@ html {
 }
 .links__favicon {
   height: 30%;
+  border-radius: 0.25rem;
 }
 .links__site-name {
   font-size: 1.1rem;

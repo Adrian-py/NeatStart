@@ -9,7 +9,7 @@ function useLinks() {
       const validUrl = url.match(UrlRegexPattern) || [];
       if(validUrl.length === 0) return '/assets/dummy-favicon.png';
       
-      return faviconUrl + 'http://' + validUrl[1];
+      return faviconUrl + validUrl[1];
   }
 
   // get top sites from chrome
