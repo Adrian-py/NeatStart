@@ -12,7 +12,7 @@ const Greeting = () => {
   const updateTime = () => {
     const currentDate = new Date();
 
-    let time = currentDate.toLocaleString("id-ID", { hour: 'numeric', 'minute': '2-digit' }).replace('.', ':');
+    let time = currentDate.toLocaleString("id-ID", { hour: '2-digit', 'minute': '2-digit' }).replace('.', ':');
     const date = currentDate.toLocaleDateString("id-ID", { day: 'numeric', month: 'numeric', year: 'numeric' }).replaceAll("/", " / ");
 
     if (currentDate.getHours() >= 12) time += " PM";
