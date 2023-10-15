@@ -39,10 +39,14 @@
 
   &__favicon {
     height: 30%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: left;
     border-radius: 0.25rem;
   }
   
   &__site-name {
+    max-width: 95%;
     font-size: 1.1rem;
     font-weight: 400;
     color: var(--primary);

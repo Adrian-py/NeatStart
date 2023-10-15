@@ -1,9 +1,8 @@
 function useFetch() {
-  const fetchUrlResponseStatus = async (url: string): Promise<number> => {
-    const responseStatus: number = await fetch(url).then((res) => {
-      return res.status;
+  const fetchUrlResponseStatus = async (url: string): Promise<boolean> => {
+    return await fetch(url, { method: "GET", mode: 'no-cors',}).then((res) => {
+      return res.ok === true;
     });
-    return responseStatus;
   };
 
   return { fetchUrlResponseStatus };

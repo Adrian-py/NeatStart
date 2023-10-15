@@ -21,6 +21,14 @@ function useLinks() {
 
       setFunction(topSitesLinks);
     });
+
+    setFunction([
+      {
+        title: 'Testing a websiteTesting a websiteTesting a websiteTesting a websiteTesting a websiteTesting a websiteTesting a websiteTesting a websiteTesting a websiteTesting a website',
+        url: 'https://chat.openai.com/',
+        favicon: getFaviconLink('https://chat.openai.com/'),
+      }
+    ]);
   }
   
   // get history from chrome
