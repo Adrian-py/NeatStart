@@ -40,12 +40,15 @@ const QuickAccessLinkForm = ({ editLinkIndex, handleCloseEditModal } : QuickAcce
         <section className="quick-access__form__container">
             <form onSubmit={handleUpdateQuickAccessLink} className='quick-access__form'>
                 <h2 className="quick-access__form__heading">Edit Quick Access Link</h2>
-                <input name="title" type="text" className="quick-access__form__title" value={title} onChange={(event) => setTitle(event.target.value)}/>
-                <input name="url" type="text" className="quick-access__form__url" value={url}  onChange={(event) => setUrl(event.target.value)}/>
+                <label htmlFor="title" className="quick-access__form__label">Title</label>
+                <input name="title" type="text" className="quick-access__form__input" value={title} onChange={(event) => setTitle(event.target.value)}/>
+                
+                <label htmlFor="url" className="quick-access__form__label">Url</label>
+                <input name="url" type="text" className="quick-access__form__input" value={url}  onChange={(event) => setUrl(event.target.value)}/>
                 
                 <div className="quick-access__form__button-container">
-                    <button type="button" className="quick-access__form__button quick-access__form__button--cancel" onClick={() => handleCloseEditModal()}>Cancel</button>
                     <button type="submit" className="quick-access__form__button quick-access__form__button--submit">Save</button>
+                    <button type="button" className="quick-access__form__button quick-access__form__button--cancel" onClick={() => handleCloseEditModal()}>Cancel</button>
                 </div>
             </form>
         </section>
