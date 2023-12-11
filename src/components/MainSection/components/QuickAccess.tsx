@@ -1,36 +1,25 @@
-import QuickAccessLinks from './QuickAccessLinks';
-import { LinkInterface } from '../types/LinkInterface';
 import { useEffect, useState } from 'react';
+import QuickAccessLinks from './QuickAccessLinks';
+import useLinks from '../../../hooks/useLinks';
+import { LinkInterface } from '../types/LinkInterface';
+import { quickAccessLinkContext } from '../context/QuickAccessLinkContext';
 
-type QuickAccessProps = {
-  quickAccessLinks: LinkInterface[];
-};
-
-const minNumberOfLinks = 8;
-
-const QuickAccess = ({ quickAccessLinks }: QuickAccessProps) => {
-  const [links, setLinks] = useState<LinkInterface[]>([]);
+const QuickAccess = () => {
+  const [quickAccessLinks, setQuickAccessLinks] = useState<LinkInterface[]>([]);
+  const { getQuickAccessLinks } = useLinks();
 
   useEffect(() => {
-    const newLinks = [];
-
-    for (let i = 0; i < minNumberOfLinks; i++) {
-      if (i < quickAccessLinks.length) {
-        newLinks.push(quickAccessLinks[i]);
-        continue;
-      }
-
-      newLinks.push({} as LinkInterface);
-    }
-
-    setLinks(newLinks);
-  }, [quickAccessLinks]);
+    const retrievedLinks = getQuickAccessLinks();
+    setQuickAccessLinks(retrievedLinks);
+  }, [getQuickAccessLinks]);
 
   return (
-    <div className="quick-access">
-      <h3 className="section-title quick-access__title ">Quick Access</h3>
-      <QuickAccessLinks quickAccessLinks={links} />
-    </div>
+    <quickAccessLinkContext.Provider value={{quickAccessLinks, setQuickAccessLinks}}>
+      <div className="quick-access">
+        <h3 className="section-title quick-access__title">Quick Access</h3>
+        <QuickAccessLinks />
+      </div>
+    </quickAccessLinkContext.Provider>
   );
 };
 

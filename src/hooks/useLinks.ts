@@ -1,5 +1,6 @@
 import { LinkInterface } from '../components/MainSection/types/LinkInterface';
 
+const minimumNumberOfLinks = 8;
 const faviconUrl: string = import.meta.env.VITE_FAVICON_LINK;
 const UrlRegexPattern = /(?:https?:\/\/)?(?:www\d*\.)?(.*?)(?:\/.*)/;
 
@@ -10,6 +11,32 @@ function useLinks() {
       if(validUrl.length === 0) return '/assets/dummy-favicon.png';
       
       return faviconUrl + validUrl[1];
+  }
+
+  // initiate quick access links
+  function initiateQuickAccessLinks(): LinkInterface[] {
+    const defaultQuickAccessLinks : LinkInterface[] = [];
+    for(let i = 0; i < minimumNumberOfLinks; i++) defaultQuickAccessLinks.push({
+      title: '',
+      url: '',
+      favicon: ''
+    } as LinkInterface);
+
+    localStorage.setItem('quick-access-links', JSON.stringify(defaultQuickAccessLinks));
+    return defaultQuickAccessLinks;
+  }
+
+  // retrieve quick access links
+  function getQuickAccessLinks(): LinkInterface[] {
+    const storedLinks = localStorage.getItem('quick-access-links');
+    if(storedLinks === null) return initiateQuickAccessLinks();
+
+    return JSON.parse(storedLinks);
+  }
+
+  // update quick access links
+  function updateQuickAccessLinks(updatedLinks: LinkInterface[]) : void {
+    localStorage.setItem('quick-access-links', JSON.stringify(updatedLinks));
   }
 
   // get top sites from chrome
@@ -49,6 +76,9 @@ function useLinks() {
 
   return {
     getFaviconLink,
+    initiateQuickAccessLinks,
+    getQuickAccessLinks,
+    updateQuickAccessLinks,
     getTopSites,
     getHistory,
   }
