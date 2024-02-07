@@ -181,6 +181,7 @@ html {
   font-size: 0.7rem;
   text-align: center;
   border-radius: 0.5rem;
+  text-wrap: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
