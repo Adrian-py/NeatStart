@@ -11,11 +11,11 @@ const QuickAccess = () => {
   useEffect(() => {
     const retrievedLinks = getQuickAccessLinks();
     setQuickAccessLinks(retrievedLinks);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <quickAccessLinkContext.Provider value={{quickAccessLinks, setQuickAccessLinks}}>
+    <quickAccessLinkContext.Provider value={{ quickAccessLinks, setQuickAccessLinks }}>
       <div className="quick-access">
         <h3 className="section-title quick-access__title">Quick Access</h3>
         <QuickAccessLinks />

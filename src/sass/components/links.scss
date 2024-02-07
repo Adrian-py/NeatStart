@@ -17,23 +17,23 @@
     justify-content: start;
     align-items: center;
     gap: 5%;
-    background: var(--background-transparent);
+    background: var(--background-2);
     border-radius: 0.75rem;
     text-decoration: none;
     cursor: pointer;
     transition: all 150ms ease-in-out;
-    
+
     &:hover {
-      background: var(--background-2);
+      background: var(--background-3);
     }
 
     @media (min-width: 1920px) {
       padding: 0 3rem;
     }
 
-    @media(min-height: 600px){
+    @media (min-height: 600px) {
       aspect-ratio: 8/1;
-      border-radius: 0.5rem;    
+      border-radius: 0.5rem;
     }
   }
 
@@ -44,7 +44,7 @@
     object-position: left;
     border-radius: 0.25rem;
   }
-  
+
   &__site-name {
     max-width: 95%;
     font-size: 1.1rem;
@@ -54,8 +54,8 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    @media(max-height: 900px){
-      font-size: 0.9rem;      
+    @media (max-height: 900px) {
+      font-size: 0.9rem;
     }
   }
 }
