@@ -110,6 +110,10 @@ html {
   font-size: 5rem;
   font-weight: 900;
 }
+.greeting__time__colon {
+  margin: 0 0.75rem;
+  animation: blink 1s steps(1, start) infinite;
+}
 @media (max-width: 1366px) {
   .greeting__time {
     font-size: 4rem;
@@ -125,6 +129,14 @@ html {
   }
 }
 
+@keyframes blink {
+  0%, 100% {
+    color: transparent;
+  }
+  50% {
+    color: inherit;
+  }
+}
 .quick-access__container {
   position: relative;
 }

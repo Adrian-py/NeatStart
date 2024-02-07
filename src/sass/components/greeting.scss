@@ -6,7 +6,7 @@
     font-size: 1.5rem;
     font-weight: 400;
 
-    @media (max-width: 1366px){
+    @media (max-width: 1366px) {
       font-size: 1.25rem;
     }
   }
@@ -15,7 +15,12 @@
     font-size: 5rem;
     font-weight: 900;
 
-    @media (max-width: 1366px){
+    &__colon {
+      margin: 0 0.75rem;
+      animation: blink 1s steps(1, start) infinite;
+    }
+
+    @media (max-width: 1366px) {
       font-size: 4rem;
     }
   }
@@ -24,8 +29,18 @@
     font-size: 2.5rem;
     font-weight: 900;
 
-    @media (max-width: 1366px){
+    @media (max-width: 1366px) {
       font-size: 1.75rem;
     }
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    color: transparent;
+  }
+  50% {
+    color: inherit;
   }
 }
